@@ -9,7 +9,6 @@ export const resolvers = {
     },
   },
   Date: {
-    // use GraphQL ISO-date scalar or implement serialize/parse
     __serialize: (value: Date) => value.toISOString(),
     __parseValue: (value: string) => new Date(value),
     __parseLiteral: (ast: any) => new Date(ast.value),

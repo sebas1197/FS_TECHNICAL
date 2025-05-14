@@ -6,7 +6,6 @@ export class Scheduler {
   constructor(private balanceSvc = new BalanceService()) {}
 
   public start() {
-    // Every day at 00:05 UTC
     const job = new CronJob('5 0 * * *', async () => {
       try {
         const count = await this.balanceSvc.updateDailyBalance();

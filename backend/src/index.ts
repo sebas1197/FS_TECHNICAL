@@ -5,13 +5,12 @@ import { Scheduler } from './services/Scheduler';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-config();  // load MONGODB_URI, PORT, etc.
+config(); 
 
 async function bootstrap() {
   await connectDB(process.env.MONGODB_URI!);
   const app = await createApp();
 
-  // Start scheduler
   new Scheduler().start();
 
   const port = process.env.PORT || 4000;

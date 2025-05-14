@@ -11,7 +11,7 @@ services:
     ports:
       - '4000:4000'
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/ree
+      - MONGODB_URI=mongodb://mongo:27017/fs-db
       - NODE_ENV=production
     depends_on:
       - mongo

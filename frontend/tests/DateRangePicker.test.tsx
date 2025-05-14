@@ -8,10 +8,10 @@ test('calls onChange when dates picked', async () => {
   const end   = new Date('2025-05-07');
 
   render(<DateRangePicker start={start} end={end} onChange={onChange} />);
-  // click the first date input
+  
   const inputs = screen.getAllByRole('textbox');
   await userEvent.click(inputs[0]);
-  // pick a date (today) - just close picker
+  
   await userEvent.keyboard('{Escape}');
   expect(onChange).toHaveBeenCalled();
 });

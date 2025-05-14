@@ -8,7 +8,6 @@ interface Props {
 }
 
 export const BalanceChart: React.FC<Props> = ({ data }) => {
-  // aggregate by date (sum values)
   const aggregated = data.reduce<Record<string, number>>((acc, rec) => {
     const date = rec.datetime.slice(0, 10);
     acc[date] = (acc[date] || 0) + rec.value;

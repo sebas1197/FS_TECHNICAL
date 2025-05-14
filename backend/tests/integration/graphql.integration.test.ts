@@ -22,7 +22,6 @@ afterAll(async () => {
 
 describe('GraphQL Integration', () => {
   it('inserts and retrieves a balance record end-to-end', async () => {
-    // Seed one record
     await BalanceRecord.create({
       datetime: new Date('2020-01-01T00:00:00Z'),
       groupId: 'G',

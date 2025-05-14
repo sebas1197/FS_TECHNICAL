@@ -9,6 +9,5 @@ const sample = [
 
 test('renders area chart with aggregated data', () => {
   render(<BalanceChart data={sample} />);
-  // should find tooltip container or axis label
   expect(screen.getByText(/Total Balance/i)).toBeInTheDocument();
 });

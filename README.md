@@ -10,7 +10,7 @@ This repository contains a complete end-to-end solution for ingesting, storing, 
    - Exposes a GraphQL API for querying data by date range  
    - Implements schema validation, robust error handling, and fallback logic  
    - Fully containerized with Docker  
-   - Unit & integration tests  
+   - Unit & integration tests
 
 2. **Frontend** (React + Vite + TypeScript)  
    - Single Page Application (SPA)  
@@ -18,7 +18,7 @@ This repository contains a complete end-to-end solution for ingesting, storing, 
    - Displays data in table and chart (Recharts)  
    - Date-range picker, loading/error states, retry logic  
    - Reusable components & clear folder structure  
-   - Unit tests with Jest & React Testing Library  
+   - Unit tests with Jest & React Testing Library
 
 ---
 
@@ -32,33 +32,33 @@ This repository contains a complete end-to-end solution for ingesting, storing, 
        ?start_date=<ISO start>
        &end_date=<ISO end>
        &time_trunc=day
-     ```  
+     ```
 
 2. **Transform**  
    - Parse JSON payload  
-   - Flatten `included` → extract `datetime`, `groupId`, `type`, `value`, `percentage`  
+   - Flatten `included` → extract `datetime`, `groupId`, `type`, `value`, `percentage`
 
 3. **Store**  
    - MongoDB collection `balance_records`  
-   - Mongoose schema with indexes on `datetime`  
+   - Mongoose schema with indexes on `datetime`
 
 4. **Query**  
-   - Exposed via GraphQL:
+   - Exposed via GraphQL:  
      ```graphql
      type Query {
        balanceByDateRange(start: Date!, end: Date!): [BalanceRecord!]!
      }
-     ```  
+     ```
 
 5. **Model** (`BalanceRecord`):
 
-   | Field       | Type     | Description                          |
-   |-------------|----------|--------------------------------------|
-   | `datetime`  | `Date`   | Timestamp of the measurement         |
-   | `groupId`   | `String` | Category (e.g. "Renovable")          |
-   | `type`      | `String` | Specific source (e.g. "Eólica")     |
-   | `value`     | `Number` | Production value (MWh)               |
-   | `percentage`| `Number` | Share relative to total that day     |
+   | Field        | Type      | Description                          |
+   |--------------|-----------|--------------------------------------|
+   | `datetime`   | `Date`    | Timestamp of the measurement         |
+   | `groupId`    | `String`  | Category (e.g. "Renovable")          |
+   | `type`       | `String`  | Specific source (e.g. "Eólica")     |
+   | `value`      | `Number`  | Production value (MWh)               |
+   | `percentage` | `Number`  | Share relative to total that day     |
 
 ---
 
@@ -69,8 +69,5 @@ This repository contains a complete end-to-end solution for ingesting, storing, 
 - Node.js v18+  
 - npm v9+  
 - Docker & Docker Compose (optional but recommended)  
-- MongoDB (local or Docker)  
+- MongoDB (local or Docker)
 
-### Environment
-
-Create a `.env` in the `backend/` folder:

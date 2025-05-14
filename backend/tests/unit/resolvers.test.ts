@@ -10,7 +10,6 @@ describe('GraphQL Resolvers', () => {
   });
 
   it('balanceByDateRange returns data from BalanceService', async () => {
-    // Spy on the service method
     const svcProto = require('../../src/services/BalanceService').BalanceService.prototype;
     const spy = jest.spyOn(svcProto, 'getByDateRange')
       .mockResolvedValue([{ datetime: new Date(), groupId: 'G', type: 'T', value: 5, percentage: 0.2 }]);

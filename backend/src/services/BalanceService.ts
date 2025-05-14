@@ -15,7 +15,6 @@ export class BalanceService {
     const end = new Date().toISOString();
 
     const payload = await this.apiSvc.fetchBalance(start, end);
-    // Validate payload shape here if desired...
     const records = payload.included.flatMap((group: any) =>
       group.attributes.content.map((item: any) => ({
         datetime: new Date(item.attributes.values[0].datetime),
