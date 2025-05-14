@@ -71,3 +71,55 @@ This repository contains a complete end-to-end solution for ingesting, storing, 
 - Docker & Docker Compose (optional but recommended)  
 - MongoDB (local or Docker)
 
+
+### Install & Run
+
+1. **Install dependencies**  
+   ```bash
+   cd backend
+   npm install
+
+- dev mode
+
+npm run dev
+
+- build and production
+
+npm run build   # Compiles TypeScript → JavaScript
+npm start       # Runs compiled code from dist/
+
+
+2. **Test Backend**
+
+npm test    
+
+- docker 
+
+docker-compose up --build
+
+- CURL 
+
+curl -X POST http://localhost:4000/graphql \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"mutation { fetchBalance }"}'
+
+
+## Frontend
+
+### Prerequisites
+
+- **Node.js** v18+  
+- **npm** v9+  
+- **Vite** (installed via devDependencies in `package.json`)  
+- A running backend at `http://localhost:4000/graphql`  
+- Environment file support (`.env` with `VITE_` variables)
+
+---
+
+### Environment
+
+Create a file named `.env` in the `frontend/` folder:
+
+```dotenv
+VITE_GRAPHQL_ENDPOINT=http://localhost:4000/graphql
+
